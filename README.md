@@ -1,28 +1,24 @@
-## Micronaut 4.8.2 Documentation
+# mn-coroutine-scheduling
 
-- [User Guide](https://docs.micronaut.io/4.8.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.8.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.8.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+Example for this Git [issue](https://github.com/micronaut-projects/micronaut-core/issues/7224)
 
-- [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
-- [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
-- [Shadow Gradle Plugin](https://gradleup.com/shadow/)
-## Feature ksp documentation
+<details>
 
-- [Micronaut Kotlin Symbol Processing (KSP) documentation](https://docs.micronaut.io/latest/guide/#kotlin)
+<summary>Example stack trace when a 'suspend' '@Scheduled' function tries to run</summary>
 
-- [https://kotlinlang.org/docs/ksp-overview.html](https://kotlinlang.org/docs/ksp-overview.html)
+```
+20:14:10.706 [scheduled-executor-thread-1] ERROR i.m.s.DefaultTaskExceptionHandler - Error creating scheduled task for bean [CoroutineScheduledTask] Argument [Continuation<Unit T> continuation] not satisfied: Unresolvable bean argument: Continuation<Unit T> continuation
+io.micronaut.core.bind.exceptions.UnsatisfiedArgumentException: Argument [Continuation<Unit T> continuation] not satisfied: Unresolvable bean argument: Continuation<Unit T> continuation
+	at io.micronaut.context.bind.DefaultExecutableBeanContextBinder.lambda$bind$2(DefaultExecutableBeanContextBinder.java:106)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at io.micronaut.context.bind.DefaultExecutableBeanContextBinder.bind(DefaultExecutableBeanContextBinder.java:105)
+	at io.micronaut.scheduling.processor.ScheduledMethodProcessor.lambda$scheduleTask$2(ScheduledMethodProcessor.java:151)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+```
 
-
-## Feature micronaut-aot documentation
-
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
-
-
-## Feature serialization-jackson documentation
-
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
-
-
+</details>
