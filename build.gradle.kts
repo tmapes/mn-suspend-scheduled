@@ -1,6 +1,5 @@
 plugins {
     id("org.jetbrains.kotlin.jvm") version "2.2.21"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.25"
     id("com.google.devtools.ksp") version "2.3.3"
     id("io.micronaut.application") version "4.6.1"
     id("io.micronaut.aot") version "4.6.1"
@@ -42,7 +41,7 @@ graalvmNative.toolchainDetection = false
 micronaut {
     runtime("netty")
     testRuntime("junit5")
-    coreVersion.set("4.9.8")
+    coreVersion.set("4.10.9")
     processing {
         incremental(true)
         annotations("com.example.*")
