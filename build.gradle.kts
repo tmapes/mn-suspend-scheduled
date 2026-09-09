@@ -1,8 +1,8 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "2.2.21"
-    id("com.google.devtools.ksp") version "2.3.3"
-    id("io.micronaut.application") version "4.6.1"
-    id("io.micronaut.aot") version "4.6.1"
+    id("org.jetbrains.kotlin.jvm") version "2.4.20"
+    id("com.google.devtools.ksp") version "2.3.12"
+    id("io.micronaut.application") version "4.6.2"
+    id("io.micronaut.aot") version "4.6.2"
 }
 
 version = "0.1"
