@@ -1,8 +1,8 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "2.2.21"
+    id("org.jetbrains.kotlin.jvm") version "2.4.20"
     id("com.google.devtools.ksp") version "2.3.3"
-    id("io.micronaut.application") version "4.6.1"
-    id("io.micronaut.aot") version "4.6.1"
+    id("io.micronaut.application") version "5.0.2"
+    id("io.micronaut.aot") version "5.0.2"
 }
 
 version = "0.1"
@@ -23,7 +23,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
+    runtimeOnly("tools.jackson.module:jackson-module-kotlin")
     testImplementation("io.micronaut:micronaut-http-client")
 }
 
@@ -32,7 +32,7 @@ application {
     mainClass = "com.example.ApplicationKt"
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("21")
+    sourceCompatibility = JavaVersion.toVersion("25")
 }
 
 
@@ -41,7 +41,7 @@ graalvmNative.toolchainDetection = false
 micronaut {
     runtime("netty")
     testRuntime("junit5")
-    coreVersion.set("4.10.9")
+    coreVersion.set("5.2.2")
     processing {
         incremental(true)
         annotations("com.example.*")
